@@ -38,7 +38,7 @@ articleView.handleAuthorFilter = function() {
     } else {
       // TODO: If the select box was changed to an option that is blank, we should
       //       show all the articles, except the one article we are using as a template.
-
+      $('article:gt(0)').show();
     }
     $('#category-filter').val('');
   });
@@ -49,8 +49,14 @@ articleView.handleCategoryFilter = function() {
   //       When an option with a value is selected, hide all the articles, then reveal the matches.
   //       When the blank (default) option is selected, show all the articles, except for the template.
   //       Be sure to reset the #author-filter while you are at it!
-
-};
+  $('#category-filter').on('change', function() {
+    if ($(this).val()) {
+        $('article').hide();
+        var $value=$(this).val();
+        $('article[data-category="' +$value+ '"]').show();
+    } else {
+      $('article:gt(0)').show()
+    }})};
 
 articleView.handleMainNav = function() {
   // TODO: Add an event handler to .main-nav element that will power the Tabs feature.
@@ -78,4 +84,6 @@ articleView.setTeasers = function() {
 $(function(){
   articleView.populateFilters();
   articleView.handleAuthorFilter();
+  articleView.handleCategoryFilter();
 });
+;
