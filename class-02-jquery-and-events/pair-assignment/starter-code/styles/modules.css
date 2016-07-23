@@ -2,6 +2,7 @@
 
 .site-header {
   padding: .1em;
+  background-color: #ccc;
 }
 
 .main-nav {
@@ -22,6 +23,7 @@
 
 #filters {
   padding: 0;
+  width:100%;
 }
 
 #filters select {

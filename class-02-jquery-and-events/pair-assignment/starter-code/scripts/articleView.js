@@ -34,7 +34,7 @@ articleView.handleAuthorFilter = function() {
       //       Use an "attribute selector" to find those articles, and fade them in for the reader.
       $('article').hide();
       var $value=$(this).val()
-      $('article[data-author="' +$value+ '"]').show();
+      $('article[data-author="' +$value+ '"]').fadeIn();
     } else {
       // TODO: If the select box was changed to an option that is blank, we should
       //       show all the articles, except the one article we are using as a template.
@@ -81,9 +81,14 @@ articleView.setTeasers = function() {
   //       "Read On" link once it has been clicked. Be sure to prevent the default link-click action!
   //       Ideally, we'd attach this as just 1 event handler on the #articles section, and let it
   //       process any .read-on clicks that happen within child nodes.
-   $('#articles').on('click','.read-on',function(event){
+   $('#articles').on('click', '.read-on',function(event){
+    //  console.log();
+     $(this).siblings('.article-body').children().show();
+    //  $(this).siblings().show();
+    //  $(this).hide();
      event.preventDefault();
-   })
+     event.stopPropagation();
+   });
 };
 
 // TODO: Call all of the above functions, once we are sure the DOM is ready.
