@@ -38,7 +38,8 @@ articleView.handleAuthorFilter = function() {
     } else {
       // TODO: If the select box was changed to an option that is blank, we should
       //       show all the articles, except the one article we are using as a template.
-      $('article:gt(0)').show();
+      $('article').show();
+      $('.template').hide();
     }
     $('#category-filter').val('');
   });
@@ -55,8 +56,11 @@ articleView.handleCategoryFilter = function() {
         var $value=$(this).val();
         $('article[data-category="' +$value+ '"]').show();
     } else {
-      $('article:gt(0)').show()
-    }})};
+      $('article').show();
+      $('.template').hide();
+    }
+    $('#catagory-authors').val('');
+})};
 
 articleView.handleMainNav = function() {
   // TODO: Add an event handler to .main-nav element that will power the Tabs feature.
