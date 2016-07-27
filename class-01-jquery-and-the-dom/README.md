@@ -1,5 +1,5 @@
 # Class 1 - jQuery and the DOM
-
+Line of text
 ## Daily Plan
 
 1. Kick-off slides
